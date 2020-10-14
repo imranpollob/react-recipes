@@ -33,14 +33,14 @@ const sampleRecipes = [
   },
   {
     id: 2,
-    name: "Plain Pork",
+    name: "Plain Beef",
     servings: 5,
     cookTime: "0:45",
-    instructions: "1. Put paprika on pork\n2. Put pork in oven\n3. Eat pork",
+    instructions: "1. Put paprika on beef\n2. Put beef in oven\n3. Eat beef",
     ingredients: [
       {
         id: 1,
-        name: "Pork",
+        name: "Beef",
         amount: "3 Pounds",
       },
       {
