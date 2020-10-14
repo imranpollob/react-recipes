@@ -1,0 +1,18 @@
+@import-normalize;
+@import "font.css";
+@import "button.css";
+
+*,
+*::before,
+*::after {
+  font-family: Gotham Rounded, sans-serif;
+}
+
+html {
+  font-size: 20px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}

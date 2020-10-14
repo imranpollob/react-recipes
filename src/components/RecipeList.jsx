@@ -7,6 +7,8 @@ export default function RecipeList({ recipes }) {
       {recipes.map((recipe) => (
         <Recipe key={recipe.id} {...recipe} />
       ))}
+
+      <button className="btn btn--primary">Add Recipe</button>
     </div>
   );
 }
