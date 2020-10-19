@@ -12,7 +12,8 @@
 }
 
 html {
-  font-size: 20px;
+  font-size: 16px;
+  background-color: hsl(90, 100%, 50%);
 }
 
 body {
