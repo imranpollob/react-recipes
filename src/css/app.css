@@ -4,6 +4,7 @@
 @import "recipe-list.css";
 @import "recipe.css";
 @import "ingredient-list.css";
+@import "recipe-edit.css";
 
 *,
 *::before,

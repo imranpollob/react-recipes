@@ -28,24 +28,27 @@ function App() {
   const recipeContextValues = {
     handleAddRecipe,
     handleDeleteRecipe,
-    handleRecipeSelect,
+    handleSelectRecipe,
+    handleUpdateRecipe,
   };
 
   function handleAddRecipe(params) {
     const newRecipe = {
       id: uuidv4(),
-      name: "New",
-      servings: 3,
-      cookTime: "1:00",
-      instructions: "Some instructions",
+      name: "",
+      servings: 1,
+      cookTime: "",
+      instructions: "",
       ingredients: [
         {
           id: uuidv4(),
-          name: "Ingredient name",
-          amount: "1 pound",
+          name: "",
+          amount: "",
         },
       ],
     };
+
+    setSelectedRecipeId(newRecipe.id);
 
     setRecipes([...recipes, newRecipe]);
   }
@@ -54,8 +57,16 @@ function App() {
     setRecipes(recipes.filter((recipe) => recipe.id !== id));
   }
 
-  function handleRecipeSelect(id) {
+  function handleSelectRecipe(id) {
     setSelectedRecipeId(id);
+  }
+
+  function handleUpdateRecipe(id, recipe) {
+    // don't update a state directly without using the associated setState
+    const tempRecipes = [...recipes];
+    const index = tempRecipes.findIndex((r) => r.id === id);
+    tempRecipes[index] = recipe;
+    setRecipes(tempRecipes);
   }
 
   return (
