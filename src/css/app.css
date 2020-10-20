@@ -10,11 +10,12 @@
 *::before,
 *::after {
   font-family: Gotham Rounded, sans-serif;
+  box-sizing: border-box;
 }
 
 html {
   font-size: 16px;
-  background-color: hsl(90, 100%, 50%);
+  /* background-color: hsl(90, 100%, 50%); */
 }
 
 body {

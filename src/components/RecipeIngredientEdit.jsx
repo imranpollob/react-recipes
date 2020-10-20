@@ -11,19 +11,24 @@ export default function RecipeIngredientEdit(props) {
     <>
       <input
         type="text"
+        className="recipe-edit__input"
         value={ingredient.name}
-        onInput={(event) =>
+        onChange={(event) =>
           handleUpdateIngredientPreProcess({ name: event.target.value })
         }
       />
       <input
         type="text"
+        className="recipe-edit__input"
         value={ingredient.amount}
-        onInput={(event) =>
+        onChange={(event) =>
           handleUpdateIngredientPreProcess({ amount: event.target.value })
         }
       />
-      <button onClick={() => handleDeleteIngredient(ingredient.id)}>
+      <button
+        className="btn btn--danger"
+        onClick={() => handleDeleteIngredient(ingredient.id)}
+      >
         &times;
       </button>
     </>

@@ -4,7 +4,7 @@ import RecipeIngredientEdit from "./RecipeIngredientEdit";
 import { RecipeContext } from "./App";
 
 export default function RecipeEdit({ recipe }) {
-  const { handleUpdateRecipe } = useContext(RecipeContext);
+  const { handleSelectRecipe, handleUpdateRecipe } = useContext(RecipeContext);
 
   function handleUpdateRecipePreProcessing(params) {
     handleUpdateRecipe(recipe.id, { ...recipe, ...params });
@@ -41,47 +41,64 @@ export default function RecipeEdit({ recipe }) {
 
   return (
     <div className="recipe-edit">
-      <div>
-        <button>&times;</button>
+      <div className="recipe-edit__remove-button-container">
+        <button
+          className="btn recipe-edit__remove-button"
+          onClick={() => handleSelectRecipe(undefined)}
+        >
+          &times;
+        </button>
       </div>
-      <div>
-        <label htmlFor="name">Name</label>
+      <div className="recipe-edit__details-grid">
+        <label htmlFor="name" className="recipe-edit__label">
+          Name
+        </label>
         <input
           type="text"
+          className="recipe-edit__input"
           name="name"
           id="name"
           value={recipe.name}
-          onInput={(event) =>
+          onChange={(event) =>
             handleUpdateRecipePreProcessing({ name: event.target.value })
           }
         />
-        <label htmlFor="cookTime">Cook Time</label>
+        <label htmlFor="cookTime" className="recipe-edit__label">
+          Cook Time
+        </label>
         <input
           type="text"
+          className="recipe-edit__input"
           name="cookTime"
           id="cookTime"
           value={recipe.cookTime}
-          onInput={(event) =>
+          onChange={(event) =>
             handleUpdateRecipePreProcessing({ cookTime: event.target.value })
           }
         />
-        <label htmlFor="servings">Servings</label>
+        <label htmlFor="servings" className="recipe-edit__label">
+          Servings
+        </label>
         <input
           type="number"
+          className="recipe-edit__input"
           min="1"
           name="servings"
           id="servings"
           value={recipe.servings}
-          onInput={(event) =>
+          onChange={(event) =>
             handleUpdateRecipePreProcessing({ servings: event.target.value })
           }
         />
-        <label htmlFor="instructions">Instructions</label>
+        <label htmlFor="instructions" className="recipe-edit__label">
+          Instructions
+        </label>
         <textarea
           name="instructions"
+          className="recipe-edit__input"
           id="instructions"
           value={recipe.instructions}
-          onInput={(event) =>
+          onChange={(event) =>
             handleUpdateRecipePreProcessing({
               instructions: event.target.value,
             })
@@ -89,8 +106,8 @@ export default function RecipeEdit({ recipe }) {
         />
       </div>
       <br />
-      <label>Ingredients</label>
-      <div>
+      <label className="recipe-edit__label">Ingredients</label>
+      <div className="recipe-edit__ingredient-grid">
         <div>Name</div>
         <div>Amount</div>
         <div></div>
@@ -103,8 +120,13 @@ export default function RecipeEdit({ recipe }) {
           />
         ))}
       </div>
-      <div>
-        <button onClick={() => handleAddIngredient()}>Add Ingredient</button>
+      <div className="recipe-edit__add-ingredient-btn-container">
+        <button
+          className="btn btn--primary"
+          onClick={() => handleAddIngredient()}
+        >
+          Add Ingredient
+        </button>
       </div>
     </div>
   );
