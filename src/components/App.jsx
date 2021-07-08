@@ -50,7 +50,7 @@ function App() {
 
     setSelectedRecipeId(newRecipe.id);
 
-    setRecipes([...recipes, newRecipe]);
+    setRecipes([newRecipe, ...recipes]);
   }
 
   function handleDeleteRecipe(id) {
